@@ -1,0 +1,1 @@
+/home/carson/.config/polybar/launch.sh
