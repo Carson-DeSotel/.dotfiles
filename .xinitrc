@@ -1,1 +1,3 @@
-/home/carson/.xinitrc
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources 
+
+exec bspwm
