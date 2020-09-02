@@ -1,0 +1,1 @@
+/bin/bspwm_connect_monitors.sh
