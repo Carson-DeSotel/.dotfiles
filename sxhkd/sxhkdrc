@@ -21,6 +21,30 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 #
+# volume hotkeys
+#
+XF86AudioRaiseVolume 
+  amixer -D pulse sset Master 2%+ unmute
+
+XF86AudioLowerVolume 
+  amixer -D pulse sset Master 2%-
+
+XF86AudioMute 
+  amixer -D pulse sset Master toggle
+
+XF86MonBrightnessUp 
+  xbacklight -inc 10
+
+XF86MonBrightnessDown 
+  xbacklight -dec 10
+
+super + XF86AudioMute
+ exec /home/carson/.dotfiles/scripts/rofi-bluetooth.sh
+
+super + shift + XF86AudioMute
+ exec /home/carson/.dotfiles/scripts/rofi-pulse-sink.sh
+
+#
 # bspwm hotkeys
 #
 

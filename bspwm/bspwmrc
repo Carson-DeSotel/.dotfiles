@@ -2,17 +2,19 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+
+
 # run script for multiple monitors
 if [ -x /bin/bspwm_connect_monitors.sh ];then 
 	# connect multiple monitors
 	bspwm_connect_monitors.sh
 
-	# define desktops for multiple monitors
+  # define desktops for multiple monitors
 	bspc monitor eDP1 -d I II III IV V 
 	bspc monitor HDMI2 -d VI VII VIII IX X
 	bspc monitor eDP1 -s HDMI2
 else
-	# define desktops for single monitor
+  # define desktops for single monitor
 	bspc monitor -d I II III IV V VI VII VIII IX X
 fi
 
@@ -33,3 +35,4 @@ for side in top right bottom left; do bspc config ${side}_monocle_padding 100; d
 nitrogen --restore & 				# wallpaper service
 ~/.config/polybar/launch.sh &			# start polybar
 picom --config ~/.config/picom/picom.conf & 	# start compositor
+sudo systemctl start bluetooth & 

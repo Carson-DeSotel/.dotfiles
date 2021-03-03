@@ -63,3 +63,6 @@ URxvt.scrollBar: false
 URxvt.internalBorder: 5
 URxvt.externalBorder: 5
 URxvt.borderless: true
+
+!! for polybar reloading (?)
+enable-ipc = true
