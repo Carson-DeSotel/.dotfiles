@@ -1,6 +1,5 @@
 [module/bspwm]
 type = internal/bspwm
-
 pin-workspaces = true
 
 label-focused-underline = ${colors.color1}

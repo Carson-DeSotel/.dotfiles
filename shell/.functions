@@ -1,0 +1,15 @@
+### Define Template Functions
+
+TEMPLATE_DIR=~/Templates
+
+### Create a new CPP file 
+### @param $1 filename
+new_cpp() {
+  cp ${TEMPLATE_DIR}/new.cpp $1.cpp;
+}
+
+### Create a new C file
+### @param $1 filename
+new_c() {
+  cp ${TEMPLATE_DIR}/new.c $1.c;
+}

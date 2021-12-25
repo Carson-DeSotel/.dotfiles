@@ -4,14 +4,14 @@
 
 # terminal emulator
 super + Return
-	urxvt
-
-super + shift + Return
-	termite
+	alacritty
 
 # program launcher
 super + @space
 	rofi -show run
+
+super + shift + @space
+  rofi -show combi
 
 super + r
 	urxvt -e ranger 

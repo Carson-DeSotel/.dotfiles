@@ -2,21 +2,22 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+### Set Defualt Cursor
+xsetroot -cursor_name left_ptr
 
-
-# run script for multiple monitors
+### run script for multiple monitors
 if [ -x /bin/bspwm_connect_monitors.sh ];then 
 	# connect multiple monitors
-	bspwm_connect_monitors.sh
-
-  # define desktops for multiple monitors
-	bspc monitor eDP1 -d I II III IV V 
-	bspc monitor HDMI2 -d VI VII VIII IX X
-	bspc monitor eDP1 -s HDMI2
-else
-  # define desktops for single monitor
-	bspc monitor -d I II III IV V VI VII VIII IX X
+	bspwm_connect_monitors.sh 
 fi
+
+# define desktops for multiple monitors
+# eDP1 : laptop monitor
+# HDMI2: HDMI monitor
+bspc monitor eDP1 -d I II III IV V 
+bspc monitor HDMI2 -d VI VII VIII IX X
+# swap monitors for navigation
+bspc monitor eDP1 -s HDMI2
 
 bspc config border_width         2
 bspc config window_gap          30
@@ -32,7 +33,7 @@ bspc rule -a Zathura state=tiled
 for side in top right bottom left; do bspc config ${side}_monocle_padding 100; done
 
 # Start Other Essential Programs
-nitrogen --restore & 				# wallpaper service
+nitrogen --restore & 							# wallpaper service
 ~/.config/polybar/launch.sh &			# start polybar
 picom --config ~/.config/picom/picom.conf & 	# start compositor
 sudo systemctl start bluetooth & 
